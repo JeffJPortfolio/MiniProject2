@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box; /* border-box 적용 */
+}
+
+#product-container {
+    margin-top: 100px;
+    width: 100%;
+    overflow: hidden; /* float로 인한 부모 요소의 높이 상실 방지 */
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 상품 이미지 스타일 */
+.product-image {
+    width: 50%; /* 이미지가 전체 너비의 50%를 차지하도록 설정 */
+    float: left; /* 이미지를 왼쪽에 배치 */
+    margin-right: 5%; /* 이미지와 상품 정보 사이의 여백 */
+}
+
+.product-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* 상품 정보 스타일 */
+.product-details {
+    width: 45%; /* 상품 정보가 전체 너비의 45%를 차지하도록 설정 */
+    float: right; /* 상품 정보를 오른쪽에 배치 */
+    padding: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* 색상 선택 스타일 */
+.product-colors {
+    margin-bottom: 20px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
+
+/* 수량 선택 스타일 */
+.quantity-selection {
+    margin-bottom: 20px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#quantity {
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* 총 가격 스타일 */
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.total-price span {
+    font-size: 16px;
+}
+
+.total-price p {
+    font-size: 18px;
+}
+
+/* 구매 버튼 스타일 */
+.purchase-button {
+    text-align: center;
+}
+
+.purchase-button button {
+    background-color: #64b5f6;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.purchase-button button:hover {
+    background-color: #57a0d6;
+}
