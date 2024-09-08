@@ -45,6 +45,17 @@
     margin-bottom: 25px;
 }
 
+.product-image-container{
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.product-image-container img{
+    width: 80%;
+    opacity: 1;
+}
+
 /* 색상 선택 스타일 */
 .product-colors {
     margin-bottom: 20px;
