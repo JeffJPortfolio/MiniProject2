@@ -1,0 +1,211 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="format-detection" content="telephone=no">
+<META http-equiv="Expires" content="-1">
+<META http-equiv="Pragma" content="no-cache">
+<META http-equiv="Cache-Control" content="No-Cache">
+<title>KT&G | lil</title>
+<link rel="stylesheet" href="/resources/renewal/css/common/reset.css?v=1">
+<link rel="stylesheet" href="/resources/renewal/css/common/common.css?v=1">
+<link rel="stylesheet" href="/resources/renewal/css/common/nice-select.css">
+<link rel="stylesheet" href="/resources/renewal/css/common/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="/resources/renewal/css/member.css?v=2">
+<link rel="stylesheet" href="/resources/renewal/css/layout.css?v=2">
+</head>
+
+<body>
+<div class="wrapper">
+	<div id="container">
+		<!-- 로그인 -->
+		<div class="wrap intro" id="loginLayer">
+			<div class="inner">
+				<div class="logoimg">
+					<div class="lillogo">
+						<span class="ani1"></span>
+						<span class="ani2"></span>
+						<span class="ani3"></span>
+						<span class="ani4"></span>
+					</div>
+					<img src="/resources/renewal/images/member/logotxt.png" alt="릴 로고">
+				</div>
+					<p>본 페이지는 만 19세 이상 성인만 이용이 가능해요<br>
+						홈페이지를 이용하시려면 <br class="onlymo"><strong class="fcgreen">로그인</strong> 혹은 <strong class="fcgreen">비회원 성인인증</strong>을 진행해 주세요
+					</p>
+				<div class="memberform">
+				<!-- callbackUrl 있는 경우 로그인 처리 후 스토어측으로 이동 2023.08.23 -->
+					<form id="frmLogin" name="frmLogin" action="/ajaxProcLogin"     >
+					<input type="hidden" name="captchaYn" value=""/>
+						<div class="loginbox">
+							<ul class="fromlist">
+								<li>
+									<input type="text" id="loginId" name="id" class="textType" data-validate="true" data-alert="아이디를 입력하세요." placeholder="이메일 아이디">
+								</li>
+								<li>
+									<input type="password" id="loginPwd" name="pwd" class="textType" autocomplete="off" data-validate="true" data-alert="비밀번호를 입력하세요." placeholder="비밀번호">
+								</li>
+							</ul>
+							<a href="javascript:void(0);" id="gdLogin" class="button green ">
+								<img src="/resources/renewal/images/member/slogo.png" alt="릴 로고"><span class="onlymo">릴 계정으로 </span> 로그인<span class="onlymo">하기</span>
+							</a>
+						</div>
+						 <div class="loginmenu">
+		<!-- 					<input type="checkbox" id="saveLoginId" name="saveLoginId" value="" />  -->
+		<!-- 					<label for="saveLoginId">아이디 저장</label> -->
+							<ul>
+								<li><a href="javascript:;" id="findIdBtn">아이디 찾기</a></li>
+								<li><a href="javascript:;" id="findPwBtn">비밀번호 재설정</a></li>
+								<li><a href="javascript:;" id="joinBtn">회원가입</a></li>
+							</ul>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+		
+			<!-- 2023-04-20 수정 s -->
+			<!-- 아이디 찾기 -->
+			<!-- 비밀번호 재발급 -->
+			<!-- // 2023-04-20 수정 e -->
+		<!-- 비밀번호 재설정 -->
+
+		
+		<!-- 회원가입 -->
+	</div>
+</div>
+<script type="text/javascript" src="/resources/js/library/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/renewal/js/_lib/jquery/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="/resources/js/library/jquerylibrary.min.js"></script>
+<script type="text/javascript" src="/resources/js_old/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/resources/js_old/block_ui.js"></script>
+<script type="text/javascript" src="/resources/renewal/js/_lib/jquery.nice-select.min.js"></script>
+<script type="text/javascript" src="/resources/renewal/js/jquery.index.js"></script>
+<script type="text/javascript" src="/resources/renewal/js/_lib/jquery-cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+document.domain = "its-lil.com";
+</script>
+<script>
+$(document).ready(function(){
+	
+	indexFunc.init();
+
+	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init($('form[name=formKakao] input[name=kakaokey]').val());
+    // SDK 초기화 여부를 판단합니다.
+    Kakao.isInitialized();
+    
+	var qrPop = "";
+	if(qrPop == 'Y'){
+		// 제품등록 레이어
+		$('#prdAddLayer').bPopup();
+	}
+
+	
+	
+	$('#emailId1').bind("keyup", function(){
+	    $(this).val($(this).val().toLowerCase());
+	});
+
+	$('#emailId2').bind("keyup", function(){
+ 	    $(this).val($(this).val().toLowerCase());
+ 	});
+	
+	
+
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
+
+	//성인 인증
+	$("#btnStep01").on("click", function(e){
+		fnJoinPopup();
+	});
+
+	$('.joinpop #step2 .agreebox li label').on('click', function(){
+	  setTimeout(function(){
+	    if($('#terms1').is(":checked") == true && $('#terms2').is(":checked") == true && $('#terms21').is(":checked") == true && $('#terms31').is(":checked") == true && $('#terms41').is(":checked") == true){
+	      $('#terms5').prop('checked',true);
+	    }else{
+	      $('#terms5').prop('checked',false);
+	    }
+	  },5);
+	});
+});
+
+
+//주소 검색
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
+		, detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo){
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	document.getElementById("zip_cd").value = zipNo;
+	document.getElementById("addr_1").value = roadAddrPart1;
+	document.getElementById("addr_2").value = addrDetail;
+	document.getElementById("siNm").value = siNm;
+}
+
+
+function fnJoinPopup(){
+     //$('#step1 .js_checkAdult').hide();
+     //$('#step1 .js_showAdult').show();
+	
+	window.open('/checkplusMain?nextUrl=/checkplusMember', 'popupMobile', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no').focus();
+	var chkStep2 = setInterval(function(){
+		if($('#step2').css('display') == 'block'){
+		    $('.joinpop .popcon').removeClass('edith');
+		    clearInterval(chkStep2);
+		}else if($('.js_showAdult#opportunity').css('display') == 'block'){
+		    $('.joinpop .popcon').removeClass('edith').addClass('edith2');
+		    clearInterval(chkStep2);
+		}
+	},5);
+}
+function fnFindIdPopup(){
+	window.open('/checkplusMain?nextUrl=/checkplusFindId', 'popupMobile', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no').focus();
+	var chkStep2 = setInterval(function(){
+		if($('#findIdLayerDiv1').css('display') == 'block'){
+			$('.memberpop .popcon').removeClass('edith');
+			clearInterval(chkStep2);
+		}
+	},5);
+}
+function fnFindPwdPopup(){
+	window.open('/checkplusMain?nextUrl=/checkplusFindPwd', 'popupMobile', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no').focus();
+	var chkStep2 = setInterval(function(){
+		if($('#findPwdLayerDiv1').css('display') == 'block'){
+			$('.memberpop .popcon').removeClass('edith');
+			clearInterval(chkStep2);
+		}
+	},5);
+}
+function fnPopup(){
+	window.open('/checkplusMain?nextUrl=/checkplusNext', 'popupMobile', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no').focus();
+}
+function fnDormancyPopup(){
+	var id = $("#loginId").val();
+	window.open('/checkplusMain?nextUrl=/checkplusDormancy&param_r1='+id+'', 'popupMobile', 'width=500, height=550, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no').focus();
+}
+function goPopup(){
+	var pop = window.open("/common/jusoApiPopup","pop","width=570, height=520, scrollbars=yes, resizable=yes");
+}
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
+		, detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo){
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	document.getElementById("zip_cd").value = zipNo;
+	document.getElementById("addr_1").value = roadAddrPart1;
+	document.getElementById("addr_2").value = addrDetail;
+	document.getElementById("siNm").value = siNm;
+}
+function fnPolicy(){
+	location.href = "/policy?etcGubun=1";
+}
+</script>
