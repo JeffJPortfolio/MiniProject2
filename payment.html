@@ -1,0 +1,227 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ECIGA</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/gallery.css">
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="../../assets/css/payment.css">
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="wrap">
+
+        <div id="header" class="clearfix">
+            <h1 class="header-inner">
+                <a href=""><img src="../../assets/img/icon/logo.png"></a>
+            </h1>
+
+            <!-- 로그인했을때 -->
+            <c:if test="${sessionScope.authUser != null}">
+                <ul>
+                    <li><span id="welcome">고객 님 안녕하세요^^</span></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart.png"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer.png"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage.png"></a></li>
+                </ul>
+            </c:if>
+
+            <!-- 로그인 안했을때 -->
+            <c:if test="${sessionScope.authUser == null}">
+                <!-- <ul>
+                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart_c.png"></a></li>
+                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer_c.png"></a></li>
+                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage_c.png"></a></li>
+            </ul> -->
+            </c:if>
+        </div>
+        <!-- //header -->
+
+        <!-- <c:import url="/WEB-INF/views/include/header.jsp"></c:import> -->
+
+
+
+
+
+        <div id="container" class="clearfix">
+
+            <main>
+                
+                    <section class="order-form">
+    
+
+                        <form action="/submit-order" method="post">
+
+                            <h2>주문/배송정보</h2>
+                        
+                            <label for="name">이름:</label>
+                            <input type="text" id="name" name="name" required>
+            
+                            <label for="phone">전화번호:</label>
+                            <input type="tel" id="phone" name="phone" required>
+            
+                            <label for="email">이메일:</label>
+                            <input type="email" id="email" name="email" required>
+            
+                            <label for="address">주소:</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+            
+            
+            
+                            <h2>결제방식</h2>
+            
+                            <ul>
+                                <li>
+                                    <label for="creditCard">신용/체크카드</label>
+                                    <span><input type="radio" id="rdo-creditCard" name="paymentWay" value="creditCard"></span>       
+                                </li>
+                                <li>
+                                    <label for="payBank">무통장입금</label>
+                                    <span><input type="radio" id="rdo-payBank" name="paymentWay" value="payBank"></span>
+                                </li>
+                            </ul>
+        
+                        </form>
+                            
+        
+                    </section>
+        
+                    <section class="order-summary">
+                        <h2>주문 요약</h2>
+        
+                        <form action="/submit-order" method="post"></form>
+        
+                            <label for="item">상품 선택:</label>
+        
+                            <ul id="viewArea">
+                                <li>
+                                    <div class="view">
+                                        <div class="itemimg">
+                                            <!--  <img  src="../../assets/img/hybrid30/hybri30_black.jpg"> -->
+                                            <img  src="../../assets/img/hybrid30/hybrid_black_small.png">
+                                        </div>
+        
+        
+                                        <div class="itemName">하이브리드 3.0 카고컨테이너 에디션</div>
+                                        <div class="itemPrice">99,000원</div>
+                                    </div>    
+        
+                                </li>
+                            </ul>
+        
+        
+        
+        
+                            <label for="quantity">수량:</label>
+                            <div class="quantity-control">
+                                <button type="button" id="decrement">-</button>
+                                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                                <button type="button" id="increment">+</button>
+                            </div>
+        
+                            
+        
+        
+        
+                            <div class="summary-item">
+                                <span>상품명:</span>
+                                <span>상품 1</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>수량:</span>
+                                <span>1</span>
+                            </div>
+
+
+
+
+                            <div class="summary-item">
+                                <span>총 가격:</span>
+                                <span>20,000원</span>
+                            </div>
+        
+        
+        
+                            <button type="submit">주문하기</button>
+                        
+                        </form>
+        
+        
+        
+                    </section>
+    
+                
+                
+            </main>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- <c:import url="/WEB-INF/views/include/header.jsp"></c:import> -->
+
+        <div id="footer">
+            <div id="footer_l">
+                <p>서울시 서초구 강남대로 405 통영빌딩 8층</p>
+                <p>상호명:(주)ElecCigaMarket 대표자 : 황일영</p>
+                <p>사업자 등록번호 : 506 - 79 - 45687</p>
+                <p>Copyright ⓒ 2024 하이미디어 All right reserved</p>
+            </div>
+            <div id="footer_r">
+                <p>주문 취소/교환 불가합니다^^</p>
+                <p>게시판문의(전화상담은 운영하지 않습니다)</p>
+                <p>평일 12:00~16:00</p>
+                <p>1588-7585</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // 수량 조절 기능을 위한 간단한 스크립트
+        document.getElementById('increment').addEventListener('click', function() {
+            var qtyInput = document.getElementById('quantity');
+            qtyInput.value = parseInt(qtyInput.value) + 1;
+        });
+
+        document.getElementById('decrement').addEventListener('click', function() {
+            var qtyInput = document.getElementById('quantity');
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+            }
+        });
+    </script>
+
+
+
+
+</body>
+</html>
