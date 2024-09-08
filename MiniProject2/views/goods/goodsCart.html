@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이식아</title>
+    <link href="../../assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/addgoods.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .cart-layout {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            width: 60%;
+        }
+
+        .product-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .product-color {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            background-color: #ddd;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            margin: 0 10px;
+        }
+
+        .price-box {
+            width: 20%;
+            text-align: right;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .order-summary {
+            width: 35%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .order-box {
+            text-align: right;
+            width: 100%;
+        }
+
+        .order-box p {
+            margin: 10px 0;
+        }
+
+        .coupon-input {
+            display: flex;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .coupon-input input {
+            width: 70%;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .coupon-btn {
+            padding: 5px 10px;
+            background-color: #5dbcd2;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .order-btn {
+            padding: 10px 20px;
+            background-color: #5dbcd2;
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* 헤더와 네비게이션 */
+        #nav h1 {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header" class="clearfix">
+            <h1 class="header-inner">
+                <a href="#"><img src="../../assets/img/icon/logo.png"></a>
+            </h1>
+
+            <!-- 로그인했을때 -->
+            <c:if test="${sessionScope.authUser != null}">
+                <ul>
+                    <li><span id="welcome">고객 님 안녕하세요^^</span></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/logout_1.png" alt="log-out" title="로그아웃"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart.png" alt="cart" title="장바구니"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer.png" alt="qna" title="문의사항"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage.png" alt="mypage" title="마이페이지"></a></li>
+                </ul>
+            </c:if>
+
+            <!-- 로그인 안했을때 -->
+            <c:if test="${sessionScope.authUser == null}">
+            </c:if>
+        </div>
+        <!-- //header -->
+
+        <!-- //nav -->
+
+        <div id="nav">
+            <h1>장바구니</h1>
+        </div>
+
+        <!-- content-head -->
+        <div class="cart-layout">
+            <div class="cart-item">
+                <img src="../../assets/img/hybrid30cce/hybrid30cce_khaki.jpeg" alt="제품 이미지" class="product-image">
+                <div class="item-details">
+                    <p class="product-name">하이브리드 3.0 카고컨테이너 에디션</p>
+                    <p class="product-color">색상: 샌드 베이지</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="quantity-btn">+</button>
+                    </div>
+                </div>
+                <div class="price-box">
+                    <p class="product-price">99,000원</p>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <div class="order-box">
+                    <p>주문금액: 99,000원</p>
+                    <p>할인금액: 0원</p>
+                    <div class="coupon-input">
+                        <input type="text" placeholder="쿠폰 코드를 입력해주세요">
+                        <button class="coupon-btn">등록</button>
+                    </div>
+                    <p class="total-price">총 주문금액(VAT 포함): 99,000원</p>
+                    <button class="order-btn">구매하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <div id="footer_l">
+                <p>서울시 서초구 강남대로 405 통영빌딩 8층</p>
+                <p>상호명:(주)ElecCigaMarket 대표자 : 황일영</p>
+                <p>사업자 등록번호 : 506 - 79 - 45687</p>
+                <p>Copyright ⓒ 2024 하이미디어 All right reserved</p>
+            </div>
+            <div id="footer_r">
+                <p>주문 취소/교환 불가합니다^^</p>
+                <p>게시판문의(전화상담은 운영하지 않습니다)</p>
+                <p>평일 12:00~16:00</p>
+                <p>1588-7585</p>
+            </div>
+        </div>
+        <!-- //footer -->
+    </div>
+
+    <script>
+        let quantity = 1;
+        const quantityValue = document.querySelector('.quantity-value');
+        const productPrice = document.querySelector('.product-price');
+
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                if (this.textContent === '+') {
+                    quantity++;
+                } else if (this.textContent === '-' && quantity > 1) {
+                    quantity--;
+                }
+                quantityValue.textContent = quantity;
+                productPrice.textContent = `${(99000 * quantity).toLocaleString()}원`;
+            });
+        });
+    </script>
+</body>
+
+</html>
