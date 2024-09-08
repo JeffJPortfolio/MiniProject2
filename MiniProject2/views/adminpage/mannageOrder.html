@@ -23,10 +23,14 @@
             <c:if test="${sessionScope.authUser != null}">
                 <ul>
                     <li><span id="welcome">고객 님 안녕하세요^^</span></li>
-                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/logout_1.png" alt="log-out" title="로그아웃"></a></li>
-                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart.png" alt="cart" title="장바구니"></a></li>
-                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer.png" alt="qna" title="문의사항"></a></li>
-                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage.png" alt="mypage" title="마이페이지"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/logout_1.png" alt="log-out"
+                                title="로그아웃"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart.png" alt="cart"
+                                title="장바구니"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer.png" alt="qna"
+                                title="문의사항"></a></li>
+                    <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage.png" alt="mypage"
+                                title="마이페이지"></a></li>
                 </ul>
             </c:if>
 
@@ -63,7 +67,7 @@
 
         <div id="board">
             <div id="list">
-                <form  action="" method="">
+                <form action="" method="">
                     <div class="form-group_text-right">
                         <select class="form-control" name="status">
                             <option value="" selected="selected">배송상태</option>
@@ -85,7 +89,9 @@
                             <th>결제수단</th>
                             <th>구매확정날짜</th>
                             <th>주문회원</th>
-                            <th>배송상태</th>
+                            <th>배송완료</th>
+                                
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,7 +102,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -105,7 +119,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -114,7 +136,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -123,7 +153,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -132,7 +170,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -141,7 +187,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -150,7 +204,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -159,7 +221,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -168,7 +238,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>123</td>
@@ -177,7 +255,15 @@
                             <td>카드</td>
                             <td>2024-09-05</td>
                             <td>정우성</td>
-                            <td>배송완료</td>
+                            <td>
+                                <select>
+                                    <option value="" selected="selected">배송상태</option>
+                                    <option value="active">준비중</option>
+                                    <option value="sleep">배송중</option>
+                                    <option value="ask">배송완료</option>
+                                    <option value="quit">확인요망</option>
+                                </select>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
