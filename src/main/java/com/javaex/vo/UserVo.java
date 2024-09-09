@@ -4,7 +4,7 @@ public class UserVo {
 
 	private int no;
     private String name;
-	private String id;
+	private String uid;
 	private String password;
     private int ssn;
 	private String phone;
@@ -14,11 +14,11 @@ public class UserVo {
 		super();
 	}
 
-	public UserVo(int no, String name, String id, String password, int ssn, String phone, String address) {
+	public UserVo(int no, String name, String uid, String password, int ssn, String phone, String address) {
 		super();
 		this.no = no;
         this.name = name;
-		this.id = id;
+		this.uid = uid;
 		this.password = password;
         this.ssn = ssn;
 		this.phone = phone;
@@ -41,12 +41,12 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public String getId() {
-		return this.id;
+	public String getUid() {
+		return this.uid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	public String getPassword() {
@@ -86,7 +86,7 @@ public class UserVo {
         return "{" +
             " no='" + getNo() + "'" +
             ", name='" + getName() + "'" +
-            ", id='" + getId() + "'" +
+            ", uid='" + getUid() + "'" +
             ", password='" + getPassword() + "'" +
             ", ssn='" + getSsn() + "'" +
             ", phone='" + getPhone() + "'" +

@@ -88,6 +88,7 @@ public class UserController {
 		System.out.println("UserController.idCheck()");
 		
 		boolean can = userService.exeIdCheck(id);
+		System.out.print(can);
 		return can;
 	}
 	

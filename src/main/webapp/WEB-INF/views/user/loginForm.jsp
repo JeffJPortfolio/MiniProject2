@@ -38,7 +38,7 @@
         <!-- login-container -->
         <div id="login-container">
             <form id="login-form" action="${pageContext.request.contextPath}/user/login" method="post">
-                <input type="text" id="email" name="email" placeholder="아이디" required><br>
+                <input type="text" id="uid" name="uid" placeholder="아이디" required><br>
                 <input type="password" id="password" name="password" placeholder="비밀번호" required><br>
                 <button type="submit" id="login-btn">로그인</button>
             </form>

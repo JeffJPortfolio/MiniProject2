@@ -10,6 +10,8 @@
 <link href="/eciga/assets/css/admin.css" rel="stylesheet" type="text/css">
 <link href="/eciga/assets/css/join.css" rel="stylesheet" type="text/css">
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
 
@@ -27,7 +29,7 @@
 
         <div id="content">
             <div id="joinForm">
-                <form id="signup-form" action="/eciga/user/join" method="get">
+                <form id="signup-form" action="${pageContext.request.contextPath}/user/join" method="get">
                     
                     <!-- 이름 -->
                     <div class="form-group">
@@ -37,8 +39,8 @@
     
                     <!-- 아이디 -->
                     <div class="form-group">
-                        <label class="form-text" for="id">아이디</label>
-                        <input type="text" id="id" name="id" placeholder="아이디" required>
+                        <label class="form-text" for="uid">아이디</label>
+                        <input type="text" id="input-uid" name="uid" placeholder="아이디" required>
                         <button type="button" id="btnIdCheck">중복체크</button>
                     </div>
                     <div id="message"></div>
@@ -46,31 +48,26 @@
                     <!-- 비밀번호 -->
                     <div class="form-group">
                         <label class="form-text" for="password">비밀번호</label>
-                        <input type="password" id="password" name="password" placeholder="비밀번호" required>
+                        <input type="text" id="input-pass" name="password" placeholder="비밀번호" required>
                     </div>
     
-                    <!-- 비밀번호 확인 -->
-                    <div class="form-group">
-                        <label class="form-text" for="confirm-password">비밀번호 확인</label>
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder="비밀번호 확인" required>
-                    </div>
     
                     <!-- 주민번호 -->
                     <div class="form-group">
                         <label class="form-text" for="ssn">주민번호 앞 8자리</label>
-                        <input type="text" id="ssn" name="ssn" placeholder="주민번호8자리" required>
+                        <input type="text" id="input-ssn" name="ssn" placeholder="주민번호8자리" required>
                     </div>
     
                     <!-- 전화번호 -->
                     <div class="form-group">
                         <label class="form-text" for="phone">전화번호</label>
-                        <input type="text" id="phone" name="phone" placeholder="전화번호" required>
+                        <input type="text" id="input-phone" name="phone" placeholder="전화번호" required>
                     </div>
     
                     <!-- 주소 -->
                     <div class="form-group">
                         <label class="form-text" for="address">주소</label>
-                        <input type="text" id="address" name="address" placeholder="주소" required>
+                        <input type="text" id="input-address" name="address" placeholder="주소" required>
                     </div>
     
                     <!-- 버튼영역 -->
@@ -87,7 +84,57 @@
                 <button id="confirm-btn">확인</button>
             </div>
 
-            <script>
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		console.log("DOM tree완료");
+	
+		//태그잡아오고 이벤트등록
+		let btnIdCheck = document.querySelector('#btnIdCheck');
+		btnIdCheck.addEventListener('click', function(){
+			console.log('클릭');
+		
+			//데이터수집
+			let txtIdTag = document.querySelector('#input-uid');
+			let id = txtIdTag.value;	
+		
+			//요청(통신)
+		    axios({
+   		        method: 'get',           // put, post, delete                   
+   	    	    url: '${pageContext.request.contextPath}/api/user/idcheck',
+   	   	    	 headers: {"Content-Type" : "application/json; charset=utf-8"}, //전송타입
+   	   	    	 params: {id: id},  //get방식 파라미터로 값이 전달
+   	      		  //data: guestbookVo,   //put, post, delete 방식 자동으로 JSON으로 변환 전달
+   	    
+   	       		 responseType: 'json' //수신타입
+   	   		 }).then(function (response) {
+   	        		console.log(response.data); //수신데이타
+   			
+   					let can = response.data;
+   					let messageTag = document.querySelector('#message');
+   			
+   			//그리기
+   					if(can == true){
+   						messageTag.textContent = "사용할 수 있는 아이디입니다.";
+   						messageTag.style.color = "#0000ff";
+   					}else {
+   						messageTag.textContent = "다른아이디를 사용해주세요";
+   						messageTag.style.color = "#ff0000";
+   						txtIdTag.value = '';
+   					}
+   			
+   	   		 }).catch(function (error) {
+   	      	 console.log(error);
+   	    
+   	    });
+
+		
+	});
+	
+	
+	
+});
+	
+            
                 document.getElementById('signup-form').addEventListener('submit', function(event) {
                     event.preventDefault(); // Prevent form submission
     
@@ -108,7 +155,7 @@
                         window.location.href = "http://localhost:8888/eciga/user/loginform"; // Replace with your target URL
                     });
                 });
-            </script>
+</script>
             
         
         </div>
