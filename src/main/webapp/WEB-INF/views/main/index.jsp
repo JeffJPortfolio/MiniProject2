@@ -61,7 +61,7 @@
                         </div>
 
                         <div id="main-header-right">
-                            <img src="../../assets/img/icon/img_mall_top.png">
+                            <img src="../../../assets/img/icon/img_mall_top.png">
 
                         </div>
                         
@@ -88,7 +88,7 @@
                             <li>
                                 <div class="view">
                                     <div class="itemimg">
-                                        <img  src="../../assets/img/hybrid30/hybrid_black_small.jpg">
+                                        <img  src="../../../assets/img/hybrid30/hybrid_black_small.jpg">
                                     </div>
                                     <div class="imgItemColor">
                                         <div class="itemGrid">
