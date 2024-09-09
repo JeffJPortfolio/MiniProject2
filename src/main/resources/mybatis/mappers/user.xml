@@ -6,49 +6,10 @@
 
 	<insert id="insert" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
-		insert into users (uid, password, name, hp, address, birth, role)
-		values(#{uid}, #{password}, #{name}, #{hp}, #{address}, #{birth}, DEFAULT)
+		insert into users (uno, uid, password, name, hp, address, birth, role)
+		values(NULL, #{uid}, #{password}, #{name}, #{hp}, #{address}, #{ssn}, 1)
 		]]>
 	</insert>
-
-	<select id="selectByIdPw" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
-		<![CDATA[
-		select  uNo
-				,uid
-				,name
-				,role
-		from users
-		where uid = #{uid}
-		and password = #{password}
-		]]>
-	</select>
-
-	<update id="updateUser" parameterType="com.javaex.vo.UserVo">
-		<![CDATA[
-		update 	users set
-				name = #{name}
-				,password = #{password}
-				,gender = #{gender}
-		where uNo = #{uNo}
-		]]>
-	</update>
-
-	<select id="selectModify" parameterType="int" resultType="com.javaex.vo.UserVo">
-		<![CDATA[
-			select uNo
-				,uid
-				,password
-				,name
-			from users
-			where uNo = #{uNo}
-		]]>
-	</select>
 	
-	<select id="selectById" parameterType="string"  resultType="int">
-		<![CDATA[
-			select count(*)
-			from users
-			where uid = #{uid}
-		]]>
-	</select>
+	
 </mapper>

@@ -27,8 +27,10 @@ public class UserController {
 	@RequestMapping(value="/user/joinform", method = {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
 		System.out.println("UserController.joinForm()");
-		
+		//여기까진 됨
+
 		return "user/joinForm";
+		
 	}
 	
 	/* 회원가입 */
@@ -38,7 +40,7 @@ public class UserController {
 		
 		userService.exeJoin(userVo);
 		
-		return "user/joinOk";
+		return "user/loginForm";
 	}
 	
 	
@@ -63,9 +65,13 @@ public class UserController {
 		
 		//로그인(세션영역에 저장)
 		session.setAttribute("authUser", authUser);
-		
+		if (authUser.getRole() == 1) {
+			return "redirect:/main";
+		}
+		else {
+			return "";
+		}
 		//메인페이지로 리다이렉트
-		return "redirect:/main";
 	}
 	
 	/* 로그아웃 */

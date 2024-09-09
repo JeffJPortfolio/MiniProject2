@@ -43,8 +43,6 @@
                 <button type="submit" id="login-btn">로그인</button>
             </form>
             <div id="links">
-                <!-- <a href="#">아이디 찾기</a> | 
-                <a href="#">비밀번호 재설정</a> |  -->
                 <a href="http://localhost:8888/eciga/user/joinform">회원가입</a>
             </div>
         </div>

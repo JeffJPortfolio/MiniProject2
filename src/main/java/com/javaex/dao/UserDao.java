@@ -15,7 +15,7 @@ public class UserDao {
 	/* 회원가입 */
 	public int insertUser(UserVo userVo) {
 		System.out.println("UserDao.insertUser()");
-		
+		System.out.println(userVo);
 		int count = sqlSession.insert("user.insert", userVo);
 		return count;
 	}

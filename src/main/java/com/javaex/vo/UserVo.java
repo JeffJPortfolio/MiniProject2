@@ -2,35 +2,37 @@ package com.javaex.vo;
 
 public class UserVo {
 
-	private int no;
+	private int uno;
     private String name;
 	private String uid;
 	private String password;
     private int ssn;
-	private String phone;
+	private String hp;
     private String address;
+    private int role;
 
     public UserVo() {
 		super();
 	}
 
-	public UserVo(int no, String name, String uid, String password, int ssn, String phone, String address) {
+	public UserVo(int uno, String name, String uid, String password, int ssn, String hp, String address, int role) {
 		super();
-		this.no = no;
+		this.uno = uno;
         this.name = name;
 		this.uid = uid;
 		this.password = password;
         this.ssn = ssn;
-		this.phone = phone;
+		this.hp = hp;
         this.address = address;
+        this.role = role;
 	}
 
-	public int getNo() {
-		return this.no;
+	public int getUno() {
+		return this.uno;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 
 	public String getName() {
@@ -65,12 +67,12 @@ public class UserVo {
 		this.ssn = ssn;
 	}
 
-	public String getPhone() {
-		return this.phone;
+	public String getHp() {
+		return this.hp;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setHp(String hp) {
+		this.hp = hp;
 	}
 
 	public String getAddress() {
@@ -81,17 +83,21 @@ public class UserVo {
 		this.address = address;
 	}
 
-    @Override
-    public String toString() {
-        return "{" +
-            " no='" + getNo() + "'" +
-            ", name='" + getName() + "'" +
-            ", uid='" + getUid() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", ssn='" + getSsn() + "'" +
-            ", phone='" + getPhone() + "'" +
-            ", address='" + getAddress() + "'" +
-            "}";
-    }	
+	
+    public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "UserVo [uno=" + uno + ", name=" + name + ", uid=" + uid + ", password=" + password + ", ssn=" + ssn
+				+ ", hp=" + hp + ", address=" + address + ", role=" + role + "]";
+	}
+
+
 
 }
