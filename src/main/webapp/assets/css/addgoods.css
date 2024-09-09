@@ -155,3 +155,128 @@ textarea {
     font-size: 18px;
     line-height: 18px;
 }
+
+/* 장바구니 */
+.cart-layout {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.cart-item {
+	display: flex;
+	align-items: center;
+	width: 55%;
+}
+
+.product-image {
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}
+
+.item-details {
+	flex-grow: 1;
+}
+
+.product-name {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.product-color {
+	font-size: 14px;
+	color: #666;
+}
+
+.quantity-selector {
+	display: flex;
+	align-items: center;
+}
+
+.quantity-btn {
+	background-color: #ddd;
+	border: none;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.quantity-value {
+	margin: 0 10px;
+}
+
+.price-box {
+	width: 20%;
+	text-align: right;
+}
+
+.product-price {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.order-summary {
+	width: 35%;
+	background-color: #f9f9f9;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.order-box {
+	text-align: right;
+	width: 100%;
+}
+
+.order-box p {
+	margin: 10px 0;
+}
+
+.coupon-input {
+	display: flex;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.coupon-input input {
+	width: 70%;
+	padding: 5px;
+	margin-right: 10px;
+	border: 1px solid #ccc;
+}
+
+.coupon-btn {
+	padding: 5px 10px;
+	background-color: #5dbcd2;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+.total-price {
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.order-btn {
+	padding: 10px 20px;
+	background-color: #5dbcd2;
+	border: none;
+	color: white;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+/* 헤더와 네비게이션 */
+#nav h1 {
+	text-align: center;
+	margin: 30px 0;
+}
+

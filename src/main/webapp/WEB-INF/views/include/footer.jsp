@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-
 <div id="footer">
 	<div id="footer_l">
 		<p>서울시 서초구 강남대로 405 통영빌딩 8층</p>
