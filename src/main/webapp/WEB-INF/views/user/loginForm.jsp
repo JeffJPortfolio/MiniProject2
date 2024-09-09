@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -5,11 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 로그인</title>
-    <link href="../../../assets/css/common.css" rel="stylesheet" type="text/css">
-    <link href="../../../assets/css/reset.css" rel="stylesheet" type="text/css">
-    <link href="../../../assets/css/admin.css" rel="stylesheet" type="text/css">
-    
-    <link href="../../../assets/css/login.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/assets/css/login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <!-- header -->
         <div id="header" class="clearfix">
             <h1 class="header-inner">
-                <a href="#"><img src="../../../assets/img/icon/logo.png" alt="Logo"></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/assets/img/icon/logo.png" alt="Logo"></a>
             </h1>
 
             <!-- 로그인 안했을때 -->
@@ -37,15 +37,15 @@
 
         <!-- login-container -->
         <div id="login-container">
-            <form id="login-form">
-                <input type="text" id="email" placeholder="아이디" required><br>
-                <input type="password" id="password" placeholder="비밀번호" required><br>
+            <form id="login-form" action="${pageContext.request.contextPath}/user/login" method="post">
+                <input type="text" id="email" name="email" placeholder="아이디" required><br>
+                <input type="password" id="password" name="password" placeholder="비밀번호" required><br>
                 <button type="submit" id="login-btn">로그인</button>
             </form>
             <div id="links">
                 <!-- <a href="#">아이디 찾기</a> | 
                 <a href="#">비밀번호 재설정</a> |  -->
-                <a href="#">회원가입</a>
+                <a href="http://localhost:8888/eciga/user/joinform">회원가입</a>
             </div>
         </div>
         <!-- //login-container -->
