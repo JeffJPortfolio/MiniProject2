@@ -11,5 +11,18 @@
 		]]>
 	</insert>
 	
+	<select id="selectByIdPw" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+		select  uNo
+				,uid
+				,name
+				,role
+		from users
+		where uid = #{uid}
+		and password = #{password}
+		]]>
+	</select>
+
 	
+
 </mapper>

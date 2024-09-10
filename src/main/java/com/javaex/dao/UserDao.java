@@ -35,5 +35,7 @@ public class UserDao {
 		int count = sqlSession.selectOne("user.selectById", uid );
 		return count;
 	}
+
+	
 	
 }
