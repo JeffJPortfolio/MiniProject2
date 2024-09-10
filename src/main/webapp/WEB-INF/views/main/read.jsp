@@ -1,15 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+    
 <!DOCTYPE html>
 <html lang="ko">
 
 
 <head>
-    <meta charset="UTF-8">
-    <title>ECIGA</title>
+<meta charset="UTF-8">
+<title>ECIGA</title>
 
-    <link rel="stylesheet" href="../../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../../assets/css/gallery.css">
-    <link rel="stylesheet" href="../../../assets/css/common.css">
-
+<link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/gallery.css" rel="stylesheet">
+<!-- 서버  통신 연결용 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
 
@@ -27,33 +32,9 @@
 
 
 
-        <div id="header" class="clearfix">
-            <h1 class="header-inner">
-                <a href=""><img src="../../../assets/img/icon/logo.png"></a>
-            </h1>
 
-            <!-- 로그인했을때 -->
-            <c:if test="${sessionScope.authUser != null}">
-                <ul>
-                    <li><span id="welcome">고객 님 안녕하세요^^</span></li>
-                    <li><a href="" class="btn_s"><img src="../../../assets/img/icon/btn_cart.png"></a></li>
-                    <li><a href="" class="btn_s"><img src="../../../assets/img/icon/btn_gnb_customer.png"></a></li>
-                    <li><a href="" class="btn_s"><img src="../../../assets/img/icon/btn_gnb_mypage.png"></a></li>
-                </ul>
-            </c:if>
 
-            <!-- 로그인 안했을때 -->
-            <c:if test="${sessionScope.authUser == null}">
-                <!-- <ul>
-                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_cart_c.png"></a></li>
-                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_customer_c.png"></a></li>
-                <li><a href="" class="btn_s"><img src="../../assets/img/icon/btn_gnb_mypage_c.png"></a></li>
-            </ul> -->
-            </c:if>
-        </div>
-        <!-- //header -->
-
-        <!-- <c:import url="/WEB-INF/views/include/header.jsp"></c:import> -->
+        <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
         <!-- 메인바디 시작 -->
          <div id="content">
@@ -65,7 +46,7 @@
 
                     <div id="item_img_box">
                         <!--  -->
-                        <img src="../../../assets/img/hybrid30/hybrid_black_small.png">
+                        <img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybrid_black_small.png">
 
                     </div>
 
@@ -73,8 +54,8 @@
 
                         <form name="itemView" id="itemView" method="post">
 
-                            <div id="itemName">하이브리드 3.0 카고컨테이너 에디션</div>
-                            <div id="itemPrice">99,000원</div>
+                            <div id="itemName">${goodsVo.name}</div>
+                            <div id="itemPrice">${goodsVo.price}원</div>
                             <div> <!-- 색깔버튼 -->
                                 <div class="imgItemColor">
                                     <div class="itemGrid">
@@ -113,7 +94,7 @@
 
                 <!-- 제품 설명이미지 -->
                 <div id="item-read" class="clearfix">
-                    <img src="../../../assets/img/hybrid30/hybri30_content.jpg">
+                    <img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybri30_content.jpg">
                     <!-- <img src="#"> -->
 
 
@@ -159,23 +140,9 @@
 
 
 
-        <!-- <c:import url="/WEB-INF/views/include/header.jsp"></c:import> -->
+        <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 
 
-        <div id="footer">
-            <div id="footer_l">
-                <p>서울시 서초구 강남대로 405 통영빌딩 8층</p>
-                <p>상호명:(주)ElecCigaMarket 대표자 : 황일영</p>
-                <p>사업자 등록번호 : 506 - 79 - 45687</p>
-                <p>Copyright ⓒ 2024 하이미디어 All right reserved</p>
-            </div>
-            <div id="footer_r">
-                <p>주문 취소/교환 불가합니다^^</p>
-                <p>게시판문의(전화상담은 운영하지 않습니다)</p>
-                <p>평일 12:00~16:00</p>
-                <p>1588-7585</p>
-            </div>
-        </div>
     
 
     </div>

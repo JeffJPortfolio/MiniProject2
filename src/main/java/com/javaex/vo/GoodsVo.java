@@ -2,83 +2,127 @@ package com.javaex.vo;
 
 public class GoodsVo {
 	
-	private int gno;
+	
+	private int gNo;
+	private String name;  //제품이름
 	private int price;
-	private String name;
-	private String descript;
-	private long imgSize;
-	private String imgPath;
-	private String imgName;
-	//생성자
+	private String color;    //제품 색상 넘버
+	
+	private String filePath;
+	private String orgName;
+	private String saveName;
+	private int fileSize;
+	
+	
+	
+	
 	public GoodsVo() {
 		super();
 	}
-	
-	public GoodsVo(int gno, String name, int price) {
-		this.gno = gno;
-		this.name = name;
-		this.price = price;
-	}
-	
-	public GoodsVo(int gno, int price, String name, String descript, long imgSize, String imgPath, String imgName) {
+
+	public GoodsVo(int gNo, String name, int price, String color, String filePath, String orgName, String saveName,
+			int fileSize) {
 		super();
-		this.gno = gno;
-		this.price = price;
+		this.gNo = gNo;
 		this.name = name;
-		this.descript = descript;
-		this.imgSize = imgSize;
-		this.imgPath = imgPath;
-		this.imgName = imgName;
-	}
-	//메소드 gs
-	public int getGno() {
-		return gno;
-	}
-	public void setGno(int gno) {
-		this.gno = gno;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
 		this.price = price;
+		this.color = color;
+		this.filePath = filePath;
+		this.orgName = orgName;
+		this.saveName = saveName;
+		this.fileSize = fileSize;
 	}
+	
+	
+	
+	
+
+	public int getgNo() {
+		return gNo;
+	}
+
+	public void setgNo(int gNo) {
+		this.gNo = gNo;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescript() {
-		return descript;
+
+	public int getPrice() {
+		return price;
 	}
-	public void setDescript(String desc) {
-		this.descript = desc;
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
-	public long getImgSize() {
-		return imgSize;
+
+	public String getColor() {
+		return color;
 	}
-	public void setImgSize(long imgSize) {
-		this.imgSize = imgSize;
+
+	public void setColor(String color) {
+		this.color = color;
 	}
-	public String getImgPath() {
-		return imgPath;
+
+	public String getFilePath() {
+		return filePath;
 	}
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
-	public String getImgName() {
-		return imgName;
+
+	public String getOrgName() {
+		return orgName;
 	}
-	public void setImgName(String imgName) {
-		this.imgName = imgName;
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
 	}
-	//메소드 일반
+
+	public String getSaveName() {
+		return saveName;
+	}
+
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
+
+	public int getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
+	}
+
+	
+	
+	
+	
 	@Override
 	public String toString() {
-		return "GoodsVo [gno=" + gno + ", price=" + price + ", name=" + name + ", descript=" + descript + ", imgSize=" + imgSize
-				+ ", imgPath=" + imgPath + ", imgName=" + imgName + "]";
+		return "GoodsVo [gNo=" + gNo + ", name=" + name + ", price=" + price + ", color=" + color + ", filePath="
+				+ filePath + ", orgName=" + orgName + ", saveName=" + saveName + ", fileSize=" + fileSize + "]";
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
