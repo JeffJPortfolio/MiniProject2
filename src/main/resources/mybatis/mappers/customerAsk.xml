@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="customerAsk">
+	<!-- 문의 목록 조회 -->
+	<select id="selectInquiryList" resultType="com.javaex.vo.CustomerAskVo">
+	<![CDATA[
+    SELECT ci.inquiry_no, ci.title, ci.content, ci.reg_date, ci.status, ci.answer_date, u.name AS userName
+    FROM customer_ask ci
+    JOIN users u ON ci.user_id = u.uno
+    WHERE (ci.status = #{status} OR #{status} IS NULL)
+      AND (ci.title LIKE CONCAT('%', #{keyword}, '%') OR #{keyword} IS NULL)
+      AND (
+        (ci.reg_date BETWEEN #{startDate} AND #{endDate})
+        OR (#{startDate} IS NULL OR #{startDate} = '' OR #{endDate} IS NULL OR #{endDate} = '')
+      )
+    ORDER BY ci.inquiry_no DESC
+    LIMIT #{startRowNo}, #{listCnt}
+	]]>
+	</select>
+
+
+
+	<!-- 전체 문의 수 조회 -->
+	<select id="getTotalCount" resultType="int">
+    <![CDATA[
+        SELECT COUNT(*)
+        FROM customer_ask
+        WHERE (status = #{status} OR #{status} IS NULL)
+          AND (title LIKE CONCAT('%', #{keyword}, '%') OR #{keyword} IS NULL)
+          AND (reg_date BETWEEN #{startDate} AND #{endDate} OR #{startDate} IS NULL OR #{endDate} IS NULL)
+    ]]>
+	</select>
+</mapper>
