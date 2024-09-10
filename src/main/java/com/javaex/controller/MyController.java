@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.MyService;
 import com.javaex.service.UserService;
+import com.javaex.vo.PurchaseVo;
 import com.javaex.vo.UserVo;
 
 import jakarta.servlet.http.HttpSession;
