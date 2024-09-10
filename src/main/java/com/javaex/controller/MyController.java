@@ -23,16 +23,16 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
-	
-	@RequestMapping(value = "/user/myccount", method = { RequestMethod.GET, RequestMethod.POST })
+//	
+	@RequestMapping(value = "/user/myaccount", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modifyForm(HttpSession session, Model model) {
 		System.out.println("UserInfoController.modifyForm()");
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 
-		UserVo userVo = myService.exeMyAcc(authUser.getUno());
+//		UserVo userVo = myService.exeMyAcc(authUser.getUno());
 
-		model.addAttribute("userVo", userVo);
+//		model.addAttribute("userVo", userVo);
 
 		return "user/myAccount";
 	}

@@ -28,7 +28,7 @@
         </div>
         <div id="content">
             <div id="joinForm">
-                <form id="signup-form" action="${pageContext.request.contextPath}/user/join" method="get">
+                <form id="signup-form" action="/eciga/user/join" method="post">
                     <!-- 이름 -->
                     <div class="form-group">
                         <label class="form-text" for="name">이름</label>
