@@ -2,24 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
 
-	<insert id="insert" parameterType="com.javaex.vo.UserVo">
-		<![CDATA[
-		insert into users (uno, uid, password, name, hp, address, birth, role)
-		values(NULL, #{uid}, #{password}, #{name}, #{hp}, #{address}, #{ssn}, 1)
-		]]>
-	</insert>
-	
-	<select id="selectByIdPw" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
-		<![CDATA[
-		select  uNo
-				,uid
-				,name
-				,role
-		from users
-		where uid = #{uid}
-		and password = #{password}
+	<select id="selectInfo" parameterType="int" resultType="com.javaex.vo.UserVo">
+		<![CDATA[   
+			select uno,
+				   uid,
+				   password,
+				   name,
+				   hp,
+				   address,
+				   birth,
+				   status
+			from users
+			where userNo = #{uno}
 		]]>
 	</select>
+	
+	<update id="update" parameterType="com.javaex.vo.UserVo">
+		<![CDATA[
+		 	update users
+		 	set password = #{password},
+		 		address = #{address}
+		 	where userNo = #{userNo}
+	]]>
+	</update>
 
 	
 

@@ -1,5 +1,9 @@
 package com.javaex.dao;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,5 +39,17 @@ public class UserDao {
 		int count = sqlSession.selectOne("user.selectById", id );
 		return count;
 	}
-	
+	/*-------------------------------------------------------------------------------------*/
+	public List<UserVo> selectUserList(Map<String, Object> map) {
+		return sqlSession.selectList("user.selectUserList", map);
+	}
+
+	// 전체 회원 수 조회
+	public int getTotalUserCount(String keyword, String status) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("keyword", keyword);
+		paramMap.put("status", status);
+		return sqlSession.selectOne("user.getTotalUserCount", paramMap);
+	}
+
 }

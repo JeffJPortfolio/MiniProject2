@@ -30,7 +30,7 @@ public class MyService {
 		int count = MyDao.modifyUser(userVo);
 
 		// 회원번호(no)를 이용해서 수정된 회원의 정보를 객체로 저장
-		UserVo modifyUserInfo = MyDao.selectInfo(userVo.getUserNo());
+		UserVo modifyUserInfo = MyDao.selectInfo(userVo.getUno());
 
 		return modifyUserInfo;
 	}

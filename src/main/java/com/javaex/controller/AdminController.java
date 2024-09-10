@@ -24,7 +24,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	@Autowired
-	private UserService userService;
+	private UserService UserService;
 	@Autowired
 	private DeliveryService deliveryService;
 	@Autowired
@@ -99,7 +99,7 @@ public class AdminController {
 			@RequestParam(value = "status", required = false, defaultValue = "") String status, Model model) {
 
 		System.out.println("keyword: " + keyword + ", status: " + status); // 디버그
-		Map<String, Object> pMap = userService.getUserList(crtPage, keyword, status);
+		Map<String, Object> pMap = UserService.getUserList(crtPage, keyword, status);
 //		System.out.println("userList size: " + ((List<UserVo>) pMap.get("userList")).size()); // 데이터 크기 확인
 
 		model.addAttribute("pMap", pMap);

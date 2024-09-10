@@ -47,6 +47,6 @@ public class MyController {
 		// 수정된 회원정보를 session에 전달
 		session.setAttribute("authUser", authUser);
 
-		return " " + authUser.getUno();
+		return " " ;
 	}
 }

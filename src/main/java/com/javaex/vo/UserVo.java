@@ -2,35 +2,39 @@ package com.javaex.vo;
 
 public class UserVo {
 
-	private int no;
+	private int uno;
     private String name;
-	private String id;
+	private String uid;
 	private String password;
     private int ssn;
-	private String phone;
+	private String hp;
     private String address;
-
+    private int role;
+    private int status; 
+    
     public UserVo() {
 		super();
 	}
 
-	public UserVo(int no, String name, String id, String password, int ssn, String phone, String address) {
+	public UserVo(int uno, String name, String uid, String password, int ssn, String hp, String address, int role, int status) {
 		super();
-		this.no = no;
+		this.uno = uno;
         this.name = name;
-		this.id = id;
+		this.uid = uid;
 		this.password = password;
         this.ssn = ssn;
-		this.phone = phone;
+		this.hp = hp;
         this.address = address;
+        this.role = role;
+        this.status = status;
 	}
 
-	public int getNo() {
-		return this.no;
+	public int getUno() {
+		return this.uno;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 
 	public String getName() {
@@ -41,12 +45,12 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public String getId() {
-		return this.id;
+	public String getUid() {
+		return this.uid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	public String getPassword() {
@@ -65,12 +69,12 @@ public class UserVo {
 		this.ssn = ssn;
 	}
 
-	public String getPhone() {
-		return this.phone;
+	public String getHp() {
+		return this.hp;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setHp(String hp) {
+		this.hp = hp;
 	}
 
 	public String getAddress() {
@@ -81,17 +85,29 @@ public class UserVo {
 		this.address = address;
 	}
 
-    @Override
-    public String toString() {
-        return "{" +
-            " no='" + getNo() + "'" +
-            ", name='" + getName() + "'" +
-            ", id='" + getId() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", ssn='" + getSsn() + "'" +
-            ", phone='" + getPhone() + "'" +
-            ", address='" + getAddress() + "'" +
-            "}";
-    }	
+	
+    public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserVo [uno=" + uno + ", name=" + name + ", uid=" + uid + ", password=" + password + ", ssn=" + ssn
+				+ ", hp=" + hp + ", address=" + address + ", role=" + role +  ", status=" + status +"]";
+	}
+
+
 
 }
