@@ -3,7 +3,7 @@ package com.javaex.vo;
 public class PurchaseVo {
 	private int order_no; //결재번호 (pNo)
 	private String uid; //유저 아이디
-	private int uNo;	//유저 번호(auto increment)
+	private int uno;	//유저 번호(auto increment)
 	private String delivery_status; //배송중/배송완
 	private String payment_status; //결재대기/결재완
 	private int fNo; //ex) 1 1 = 하이브리드 빨강; 2 1 = 사이브리드 빨강 ; 1 2 = 하이브리드 파랑
@@ -33,11 +33,11 @@ public class PurchaseVo {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public int getuNo() {
-		return uNo;
+	public int getUno() {
+		return uno;
 	}
-	public void setuNo(int uNo) {
-		this.uNo = uNo;
+	public void setuNo(int uno) {
+		this.uno = uno;
 	}
 	public String getDelivery_status() {
 		return delivery_status;
@@ -77,7 +77,7 @@ public class PurchaseVo {
 	}
 	@Override
 	public String toString() {
-		return "PurchaseVo [order_no=" + order_no + ", uid=" + uid + ", uNo=" + uNo + ", delivery_status="
+		return "PurchaseVo [order_no=" + order_no + ", uid=" + uid + ", uno=" + uno + ", delivery_status="
 				+ delivery_status + ", payment_status=" + payment_status + ", fNo=" + fNo + ", goods_name=" + goods_name
 				+ ", color=" + color + ", price=" + price + "]";
 	}
