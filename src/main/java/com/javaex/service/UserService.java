@@ -1,5 +1,7 @@
 package com.javaex.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +48,15 @@ public class UserService {
 		
 	}
 	
-	
+	/* 마이페이지 구매내역 */
+	public List<PurchaseVo> exeUserPurchase(int userNo) {
+		System.out.println("UserInfoService.exeUserPurchase()");
+		
+		List<PurchaseVo> purchaseList = MyDao.c(userNo);
+		
+		return purchaseList;
+		
+	}
 	
 	
 	

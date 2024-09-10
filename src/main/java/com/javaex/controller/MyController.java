@@ -1,6 +1,8 @@
 package com.javaex.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,16 +26,19 @@ public class MyController {
 	private MyService myService;
 	
 //	
-	@RequestMapping(value = "/user/myaccount", method = { RequestMethod.GET, RequestMethod.POST })
-	public String modifyForm(HttpSession session, Model model) {
-		System.out.println("UserInfoController.modifyForm()");
+	@RequestMapping(value = "/user/purchaselist", method = { RequestMethod.GET, RequestMethod.POST })
+	public String purchaseListForm(HttpSession session, Model model) {
+		System.out.println("UserInfoController.purchaseListForm()");
 
+		// 로그인한 session 값을 객체로 가져오기
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 
-//		UserVo userVo = myService.exeMyAcc(authUser.getUno());
+		// 회원의 세션번호로 구매내역 불러오기
+		// 한사람이 여러개를 사면 결과값이 1개 이상이므로
+		List<PurchaseVo> purchaseList = MyService.exeUserPurchase(authUser.getUno());
 
-//		model.addAttribute("userVo", userVo);
+		model.addAttribute("purchaseList", purchaseList);
 
-		return "user/myAccount";
+		return "user/purchaseList";
 	}
 }
