@@ -1,1 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="user">
+
+<select id="selectPurchase" parameterType="int" resultType="com.javaex.vo.PurchaseVo">
+		<![CDATA[   
+			select	d.order_no,
+					d.delivery_status,
+					d.payment_status,
+					u.uno,
+					u.name AS user_name,
+					l.fno
+					g.name AS goods_name,
+					g.price
+					o.color
+			from delivery d
+			inner join user u
+			on d.user_id = u.uno
+			inner join selectedGoods s
+			on d.order_no = u.pno
+			inner join listGoods l
+			on s.fno = l.fno
+			inner join options o
+			on l.color= o.cno
+			inner join goods g
+			on l.gno = g.gno
+			where d.user_id = #{uno}
+	]]>
+</select>
+</mapper>

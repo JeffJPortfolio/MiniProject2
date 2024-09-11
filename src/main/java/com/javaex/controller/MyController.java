@@ -36,7 +36,7 @@ public class MyController {
 
 		// 회원의 세션번호로 구매내역 불러오기
 		// 한사람이 여러개를 사면 결과값이 1개 이상이므로
-		List<PurchaseVo> purchaseList = MyService.exeUserPurchase(authUser.getUno());
+		List<PurchaseVo> purchaseList = myService.exeUserPurchase(authUser.getUno());
 
 		model.addAttribute("purchaseList", purchaseList);
 

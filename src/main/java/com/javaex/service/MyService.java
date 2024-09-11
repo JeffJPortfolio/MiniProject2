@@ -13,13 +13,13 @@ import com.javaex.vo.UserVo;
 public class MyService {
 	
 	@Autowired
-	private MyDao userInfoDao;
+	private MyDao myDao;
 	
 	/* 마이페이지 구매내역 */
-	public List<PurchaseVo> exeUserPurchase(int userNo) {
+	public List<PurchaseVo> exeUserPurchase(int uno) {
 		System.out.println("UserInfoService.exeUserPurchase()");
 
-		List<PurchaseVo> purchaseList = userInfoDao.selectPurchase(userNo);
+		List<PurchaseVo> purchaseList = myDao.selectPurchase(uno);
 
 		return purchaseList;
 
