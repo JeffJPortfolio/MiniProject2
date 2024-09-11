@@ -20,8 +20,21 @@ public class MyService {
 		System.out.println("UserInfoService.exeUserPurchase()");
 
 		List<PurchaseVo> purchaseList = myDao.selectPurchase(uno);
-
+		
+		
+		
 		return purchaseList;
 
 	}
+	public boolean exeUpdate(PurchaseVo purchaseVo) {
+        try {
+            // DAO를 통해 배송 상태 업데이트
+        	System.out.println("되누?");
+        	myDao.update(purchaseVo);
+            return true;  // 성공하면 true 반환
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;  // 실패하면 false 반환
+        }
+    }
 }

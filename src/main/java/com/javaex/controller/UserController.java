@@ -69,8 +69,11 @@ public class UserController {
 		if (authUser.getRole() == 1) {
 			return "redirect:/main";
 		}
+		else if(authUser.getRole() == 0){
+			return "redirect:/main";
+		}
 		else {
-			return "";
+			return "user/loginForm";
 		}
 		//메인페이지로 리다이렉트
 	}

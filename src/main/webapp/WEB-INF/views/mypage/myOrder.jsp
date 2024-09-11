@@ -10,6 +10,8 @@
     <link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/assets/css/admin.css" rel="stylesheet" type="text/css">
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -46,38 +48,57 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Assuming 'purchaseList' is the attribute name containing a list of PurchaseVo objects -->
-                        <c:forEach var="purchase" items="${purchaseList}">
-                            <tr>
-                                <td><c:out value="${purchase.order_no}"/></td>
-                                <td><c:out value="${purchase.delivery_status}"/></td>
-                                <td><c:out value="${purchase.payment_status}"/></td>
-                                <td><c:out value="${purchase.user_name}"/></td>
-                                <td><c:out value="${purchase.address}"/></td>
-                                <td><c:out value="${purchase.goods_name}"/></td>
-                            </tr>
-                        </c:forEach>
+						<c:if test="${purchaseList == NULL}">
+    					<!-- Display message or redirect to an empty list page -->
+   							 <tr>
+        						<td colspan="6">No purchases found.</td>
+    						</tr>
+						</c:if>
+						<c:if test="${purchaseList != NULL}">                    
+	                        <!-- Assuming 'purchaseList' is the attribute name containing a list of PurchaseVo objects -->
+    	                    <c:forEach var="purchase" items="${purchaseList}">
+        	                	<tr>
+            	                	<td><c:out value="${purchase.order_no}"/></td>
+                    	            <td><c:choose>
+										<c:when test="${purchase.delivery_status == 0}">준비중</c:when>
+										<c:when test="${purchase.delivery_status == 1}">배송중</c:when>
+										<c:when test="${purchase.delivery_status == 2}">배송완료</c:when>
+										<c:when test="${purchase.delivery_status == 3}">확인요망</c:when>
+										</c:choose>
+										<button type="button" class="confirmBtn" data-order-no="${delivery.orderNo}">확인</button>
+									</td>
+            	                    <td><c:choose>
+                	             		<c:when test="${purchase.payment_status == 0}">결제 완료</c:when>
+                    	          		<c:when test="${purchase.payment_status == 1}">미결제</c:when>
+                        	      		<c:otherwise>취소</c:otherwise>
+                           			</c:choose></td>
+                         		       <td><c:out value="${purchase.user_name}"/></td>
+                            	    	<td><c:out value="${purchase.address}"/></td>
+                                		<td><c:out value="${purchase.goods_name}"/></td>
+                            		</tr>
+                        	</c:forEach>
+                        </c:if>
                     </tbody>
                 </table>
 
-                <div id="paging">
-                    <ul>
-                        <li><a href="">◀</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li class="active"><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                        <li><a href="">▶</a></li>
-                    </ul>
+<!--                 <div id="paging"> -->
+<!--                     <ul> -->
+<!--                         <li><a href="">◀</a></li> -->
+<!--                         <li><a href="">1</a></li> -->
+<!--                         <li><a href="">2</a></li> -->
+<!--                         <li><a href="">3</a></li> -->
+<!--                         <li><a href="">4</a></li> -->
+<!--                         <li class="active"><a href="">5</a></li> -->
+<!--                         <li><a href="">6</a></li> -->
+<!--                         <li><a href="">7</a></li> -->
+<!--                         <li><a href="">8</a></li> -->
+<!--                         <li><a href="">9</a></li> -->
+<!--                         <li><a href="">10</a></li> -->
+<!--                         <li><a href="">▶</a></li> -->
+<!--                     </ul> -->
 
 
-                    <div class="clear"></div>
+<!--                     <div class="clear"></div> -->
                 </div>
                 <!-- <a id="btn_write" href="">글쓰기</a> -->
             </div>
@@ -103,5 +124,56 @@
     </div>
     <!-- //content-head -->
 </body>
+<script>
+// DOM 로드 완료 시 실행되는 이벤트 등록
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM tree 완료");
+
+    // 확인 버튼 클릭 이벤트 등록
+    let confirmButtons = document.querySelectorAll('.confirmBtn');
+    confirmButtons.forEach(function(button) {
+        button.addEventListener('click', saveDeliveryStatus);
+    });
+});
+
+// 배송 상태 저장 메소드
+function saveDeliveryStatus(event) {
+	console.log("클릭했음");
+	
+    let buttonTag = event.target;
+    let orderNo = buttonTag.dataset.orderno;
+    
+ 
+    
+	
+    let orderData = {
+    	order_no: orderNo,
+    	delivery_status: 3
+    };
+    
+    console.log(orderData);
+
+    axios({
+        method: 'post', // POST 요청으로 변경
+        url: '/eciga/mypage/update', // 서버의 경로
+        headers: {
+            'Content-Type': 'application/json'  // 요청이 JSON임을 명시
+        },
+        params: orderData, // 데이터를 JSON 문자열로 변환하여 전송
+        responseType: 'json'
+    })
+    .then(function(response) {
+        alert("배송 상태가 성공적으로 저장되었습니다.");
+    })
+    .catch(function(error) {
+        console.error(error);
+        alert("배송 상태 저장 중 오류가 발생했습니다.");
+    });
+}
+</script>
+
+	<!-- //content-head -->
+</body>
 
 </html>
+
