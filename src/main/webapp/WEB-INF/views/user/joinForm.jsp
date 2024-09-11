@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="http://localhost:8888/eciga/assets/css/common.css" rel="stylesheet" type="text/css">
-<link href="/eciga/assets/css/reset.css" rel="stylesheet" type="text/css">
-<link href="/eciga/assets/css/admin.css" rel="stylesheet" type="text/css">
-<link href="/eciga/assets/css/join.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/admin.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/join.css" rel="stylesheet" type="text/css">
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 

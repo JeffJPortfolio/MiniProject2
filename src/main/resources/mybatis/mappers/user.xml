@@ -15,6 +15,10 @@
 		<![CDATA[
 		select  uNo
 				,uid
+				,password
+				,birth as ssn
+				,hp
+				,address
 				,name
 				,role
 		from users

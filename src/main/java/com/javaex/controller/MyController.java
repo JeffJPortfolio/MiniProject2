@@ -27,7 +27,7 @@ public class MyController {
 	private MyService myService;
 	
 //	
-	@RequestMapping(value = "/user/purchaselist", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/mypage/myorder", method = { RequestMethod.GET, RequestMethod.POST })
 	public String purchaseListForm(HttpSession session, Model model) {
 		System.out.println("UserInfoController.purchaseListForm()");
 
@@ -40,6 +40,6 @@ public class MyController {
 
 		model.addAttribute("purchaseList", purchaseList);
 
-		return "user/purchaseList";
+		return "mypage/myOrder";
 	}
 }

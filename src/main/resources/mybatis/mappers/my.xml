@@ -10,6 +10,7 @@
 			select	d.order_no,
 					d.delivery_status,
 					d.payment_status,
+					u.address
 					u.uno,
 					u.name AS user_name,
 					l.fno
