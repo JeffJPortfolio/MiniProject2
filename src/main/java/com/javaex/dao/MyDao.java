@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.javaex.vo.BoardVo;
 import com.javaex.vo.PurchaseVo;
 import com.javaex.vo.UserVo;
 
@@ -17,15 +18,19 @@ public class MyDao {
 	private SqlSession sqlSession;
 	
 	public List<PurchaseVo> selectPurchase(int uno) {
-		System.out.println("sql전");
-		System.out.println(uno); 
+
 		List<PurchaseVo> purchaseList = sqlSession.selectList("my.selectPurchase", uno);
 		
-		
-		System.out.println(purchaseList);
-		
-		
 		return purchaseList;
+	}
+	
+	public List<BoardVo> selectBoard(int uno) { 
+		System.out.println("셀렉전");
+		List<BoardVo> boardList = sqlSession.selectList("my.selectBoard", uno);
+		
+		System.out.println(boardList.toString());
+		System.out.println("셀렉후");
+		return boardList;
 	}
 	
     public void update(PurchaseVo purchaseVo) {

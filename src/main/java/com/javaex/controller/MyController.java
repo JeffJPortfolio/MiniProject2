@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.MyService;
 import com.javaex.service.UserService;
+import com.javaex.vo.BoardVo;
 import com.javaex.vo.PurchaseVo;
 import com.javaex.vo.UserVo;
 
@@ -45,6 +46,25 @@ public class MyController {
 		return "mypage/myOrder";
 	}
 	
+	@RequestMapping(value = "/mypage/myservice", method = { RequestMethod.GET, RequestMethod.POST })
+	public String boardList(HttpSession session, Model model) {
+		System.out.println("UserInfoController.purchaseListForm()");
+
+		// 로그인한 session 값을 객체로 가져오기
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+
+		// 회원의 세션번호로 구매내역 불러오기
+		// 한사람이 여러개를 사면 결과값이 1개 이상이므로
+		List<BoardVo> boardList ;
+		System.out.println("컨트롤전");
+		boardList = myService.exeUserBoard(authUser.getUno());
+
+		model.addAttribute("boardList", boardList);
+		System.out.println("컨트롤후");
+		return "mypage/myService";
+	}
+	
+	
 	 @ResponseBody
 	 @RequestMapping(value = "/mypage/update", method = {RequestMethod.POST})
 	 public String updateDeliveryStatus(@ModelAttribute PurchaseVo purchaseVo) {
@@ -61,5 +81,7 @@ public class MyController {
 	         return "배송 상태 저장 중 오류가 발생했습니다.";
 	        }
 	    }
+	 
+
 	
 }

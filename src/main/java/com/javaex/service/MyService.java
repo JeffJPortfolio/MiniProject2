@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.javaex.dao.MyDao;
 import com.javaex.vo.PurchaseVo;
 import com.javaex.vo.UserVo;
+import com.javaex.vo.BoardVo;
 
 @Service
 public class MyService {
@@ -15,9 +16,10 @@ public class MyService {
 	@Autowired
 	private MyDao myDao;
 	
+	
 	/* 마이페이지 구매내역 */
 	public List<PurchaseVo> exeUserPurchase(int uno) {
-		System.out.println("UserInfoService.exeUserPurchase()");
+		System.out.println("MyService.exeUserPurchase()");
 
 		List<PurchaseVo> purchaseList = myDao.selectPurchase(uno);
 		
@@ -26,6 +28,21 @@ public class MyService {
 		return purchaseList;
 
 	}
+	
+	public List<BoardVo> exeUserBoard(int uno) {
+		System.out.println("MyService.exeUserBoard()");
+		
+		List<BoardVo> boardList = myDao.selectBoard(uno);
+		
+		return boardList;
+
+	}
+	
+	
+	
+	
+	
+	
 	public boolean exeUpdate(PurchaseVo purchaseVo) {
         try {
             // DAO를 통해 배송 상태 업데이트
