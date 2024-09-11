@@ -6,7 +6,7 @@ public class UserVo {
     private String name;
 	private String uid;
 	private String password;
-    private int ssn;
+    private String ssn;
 	private String hp;
     private String address;
     private int role;
@@ -15,7 +15,7 @@ public class UserVo {
 		super();
 	}
 
-	public UserVo(int uno, String name, String uid, String password, int ssn, String hp, String address, int role) {
+	public UserVo(int uno, String name, String uid, String password, String ssn, String hp, String address, int role) {
 		super();
 		this.uno = uno;
         this.name = name;
@@ -59,11 +59,11 @@ public class UserVo {
 		this.password = password;
 	}
 
-	public int getSsn() {
+	public String getSsn() {
 		return this.ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 
