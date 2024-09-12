@@ -6,7 +6,7 @@ public class BoardVo {
     private String title;
     private String content;
     private String reg_date;
-    private int status;
+    private String status;
     private String answer;
     private String answer_date;
 
@@ -14,7 +14,7 @@ public class BoardVo {
     public BoardVo() {}
 
     // Constructor with all fields
-    public BoardVo(int inquiry_no, int user_id, String title, String content, String reg_date, int status, String answer, String answer_date) {
+    public BoardVo(int inquiry_no, int user_id, String title, String content, String reg_date, String status, String answer, String answer_date) {
         this.inquiry_no = inquiry_no;
         this.user_id = user_id;
         this.title = title;
@@ -66,11 +66,11 @@ public class BoardVo {
         this.reg_date = reg_date;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

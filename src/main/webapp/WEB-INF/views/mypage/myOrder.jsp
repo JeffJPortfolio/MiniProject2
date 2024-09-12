@@ -30,7 +30,7 @@
             <ul class="clearfix">
                 <li><a href="${pageContext.request.contextPath}/user/myorders">나의 주문</a></li>
                 <li><a href="${pageContext.request.contextPath}/user/myaccount">나의 정보</a></li>
-                <li><a href="${pageContext.request.contextPath}/user/myinquiries">나의 문의</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/myservices">나의 문의</a></li>
             </ul>
         </div>
 

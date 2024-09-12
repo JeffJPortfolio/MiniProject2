@@ -50,7 +50,7 @@
 	]]>
 </select>
 
-<select id="selectBoard" parameterType="int" resultType="com.javaex.vo.PurchaseVo">
+<select id="selectBoard" parameterType="int" resultType="com.javaex.vo.BoardVo">
 		<![CDATA[   
 			select  inquiry_no,
 					user_id,
@@ -60,8 +60,8 @@
 					status,
 					answer,
 					answer_date
-				from customer_ask
-				where user_id = #{uno}
+					from customer_ask
+			where user_id = 23
 	]]>
 </select>
 
@@ -71,7 +71,7 @@
         SET delivery_status = #{delivery_status}
         WHERE order_no = #{order}
         ]]>
-    </update>
+</update>
 
 
 </mapper>

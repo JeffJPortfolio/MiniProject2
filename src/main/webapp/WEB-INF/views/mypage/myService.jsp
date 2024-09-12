@@ -55,9 +55,9 @@
 	                        <!-- Assuming 'purchaseList' is the attribute name containing a list of PurchaseVo objects -->
     	                    <c:forEach var="board" items="${boardList}">
         	                	<tr>
-            	                	<td><c:out value="${board.bno}"/></td>
+            	                	<td><c:out value="${board.inquiry_no}"/></td>
                     	            <td><c:out value="${board.title}"/></td>
-            	                    <td><c:out value="${board.ansStatus}"/></td>
+            	                    <td><c:out value="${board.status}"/></td>
                             		</tr>
                         	</c:forEach>
                         </c:if>

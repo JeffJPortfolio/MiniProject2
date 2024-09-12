@@ -53,10 +53,8 @@ public class MyController {
 		// 로그인한 session 값을 객체로 가져오기
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 
-		// 회원의 세션번호로 구매내역 불러오기
-		// 한사람이 여러개를 사면 결과값이 1개 이상이므로
+
 		List<BoardVo> boardList ;
-		System.out.println("컨트롤전");
 		boardList = myService.exeUserBoard(authUser.getUno());
 
 		model.addAttribute("boardList", boardList);

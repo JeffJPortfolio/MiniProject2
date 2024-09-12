@@ -23,16 +23,15 @@ public class MyService {
 
 		List<PurchaseVo> purchaseList = myDao.selectPurchase(uno);
 		
-		
-		
 		return purchaseList;
 
 	}
 	
 	public List<BoardVo> exeUserBoard(int uno) {
 		System.out.println("MyService.exeUserBoard()");
-		
+
 		List<BoardVo> boardList = myDao.selectBoard(uno);
+		System.out.println(uno);
 		
 		return boardList;
 
