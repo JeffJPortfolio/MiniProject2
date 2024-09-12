@@ -29,8 +29,8 @@ public class ServiceController {
 	//메소드 일반
 	
 	/* 회원가입폼 */
-	@RequestMapping(value = "/mypage/myservice", method = { RequestMethod.GET, RequestMethod.POST })
-	public String boardList(HttpSession session, Model model) {
+	@RequestMapping(value = "/servicepage/viewservice", method = { RequestMethod.GET, RequestMethod.POST })
+	public String serviceList(HttpSession session, Model model) {
 		System.out.println("UserInfoController.purchaseListForm()");
 
 		// 로그인한 session 값을 객체로 가져오기
@@ -38,11 +38,11 @@ public class ServiceController {
 
 
 		List<BoardVo> boardList ;
-		boardList = ServiceService.exeShowService(authUser.getInquiry_no());
+		boardList = serviceService.exeShowService(authUser.getInquiry_no());
 
 		model.addAttribute("boardList", boardList);
 		System.out.println("컨트롤후");
-		return "mypage/myService";
+		return "servicepage/viewService";
 	}
 	
 

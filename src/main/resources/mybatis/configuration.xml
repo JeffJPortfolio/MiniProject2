@@ -16,10 +16,7 @@
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/my.xml" />
 		<mapper resource="mybatis/mappers/board.xml" />
-		<!-- 
-		<mapper resource="mybatis/mappers/board.xml" />
-		
-		 -->
+
 
 	</mappers>
 

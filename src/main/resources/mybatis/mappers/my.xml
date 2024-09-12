@@ -42,10 +42,9 @@
         			d.payment_method,
         			d.payment_amount,
       			  	u.uid,
-     			  	u.name as user_name,
-      			  	u.hp,
-      		  		u.address
-				from delivery d JOIN users u ON d.user_id = u.uNo
+      			  	u.name
+				from delivery d 
+				JOIN users u 
 				where d.user_id = #{uno}
 	]]>
 </select>
