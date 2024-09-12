@@ -46,22 +46,21 @@
                     </thead>
                     <tbody>
 						<c:if test="${boardList == NULL}">
-    					<!-- Display message or redirect to an empty list page -->
-   							 <tr>
-        						<td colspan="6">No purchases found.</td>
-    						</tr>
+							<!-- Display message or redirect to an empty list page -->
+							<tr>
+								<td colspan="6">No boards found.</td>
+							</tr>
 						</c:if>
-						<c:if test="${boardList != NULL}">                    
-	                        <!-- Assuming 'purchaseList' is the attribute name containing a list of PurchaseVo objects -->
-    	                    <c:forEach var="board" items="${boardList}">
-        	                	<tr>
-            	                	<td><c:out value="${board.inquiry_no}"/></td>
-                    	            <td><c:out value="${board.title}"/></td>
-            	                    <td><c:out value="${board.status}"/></td>
-                            		</tr>
-                        	</c:forEach>
-                        </c:if>
-                    </tbody>
+						<c:if test="${boardList != NULL}">
+							<c:forEach var="board" items="${boardList}">
+								<tr style="cursor: pointer;" onClick="window.location.href='${pageContext.request.contextPath}/board/details?inquiry_no=${board.inquiry_no}'">
+									<td><c:out value="${board.inquiry_no}"/></td>
+									<td><c:out value="${board.title}"/></td>
+									<td><c:out value="${board.status}"/></td>
+								</tr>
+							</c:forEach>
+						</c:if>
+					</tbody>
                 </table>
 
 <!--                 <div id="paging"> -->
