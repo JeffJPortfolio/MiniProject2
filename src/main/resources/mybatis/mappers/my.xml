@@ -61,7 +61,7 @@
 					answer,
 					answer_date
 				from customer_ask
-				where user_id = 22
+				where user_id = #{uno}
 	]]>
 </select>
 
