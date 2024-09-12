@@ -52,16 +52,16 @@
 
 <select id="selectBoard" parameterType="int" resultType="com.javaex.vo.PurchaseVo">
 		<![CDATA[   
-			select  c.inquiry_no,
-					c.user_id,
-					c.title,
-					c.content,
-					c.reg_date,
-					c.status,
-					c.answer,
-					c.answer_date
-				from customer_ask c JOIN users u ON c.user_id = u.uNo
-				where c.user_id = #{uno}
+			select  inquiry_no,
+					user_id,
+					title,
+					content,
+					reg_date,
+					status,
+					answer,
+					answer_date
+				from customer_ask
+				where user_id = 22
 	]]>
 </select>
 

@@ -25,7 +25,7 @@ public class MyDao {
 	}
 	
 	public List<BoardVo> selectBoard(int uno) { 
-		System.out.println("셀렉전");
+		System.out.println(uno);
 		List<BoardVo> boardList = sqlSession.selectList("my.selectBoard", uno);
 		
 		System.out.println(boardList.toString());
